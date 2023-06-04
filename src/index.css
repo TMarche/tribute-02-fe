@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,15 +7,11 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 body {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
+    box-sizing: border-box;
 }
