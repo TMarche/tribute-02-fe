@@ -21,6 +21,7 @@ export default {
                 paper: "#FAFAEF",
                 "paper-hover": "#DFDFFE",
                 field: "#FFFAFA",
+                adornment: "#BDB193",
             },
             fontFamily: {
                 serif: ["playfair", "serif"],
@@ -32,6 +33,11 @@ export default {
                 sm: "0 1px 2px var(--tw-shadow-color)",
                 DEFAULT: "0 2px 4px var(--tw-shadow-color)",
                 lg: "0 8px 16px var(--tw-shadow-color)",
+            },
+            width: {
+                5: "1.25rem",
+                8: "2rem",
+                10: "2.5rem",
             },
         },
     },

@@ -32,24 +32,27 @@ const Tributes = () => {
     return (
         <div className="relative flex-1 p-10">
             <CornerAdornment size={10} />
-            <div className="text-5xl font-thin text-center">TRIBUTES</div>
-            <div className="flex flex-col gap-7">
-                <div className="flex flex-row gap-2 justify-center">
+            <div className="flex flex-col gap-10">
+                <div className="text-5xl font-thin text-center">TRIBUTES</div>
+                <div className="flex flex-row justify-center">
                     <input
+                        className="border-solid border-2 pl-2 outline-none"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         onKeyPress={handleKeyPress}
                     />
                     <Button onClick={handleAdd}>Add</Button>
                 </div>
-                {tributes.map((tribute) => (
-                    <TributeOverview
-                        key={tribute.tributeId}
-                        tribute={tribute}
-                        setTributes={setTributes}
-                        deleteTribute={handleDelete}
-                    />
-                ))}
+                <div className="flex flex-col gap-10">
+                    {tributes.map((tribute) => (
+                        <TributeOverview
+                            key={tribute.tributeId}
+                            tribute={tribute}
+                            setTributes={setTributes}
+                            deleteTribute={handleDelete}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
