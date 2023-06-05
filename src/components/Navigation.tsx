@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import useMediaQuery from "../hooks/useMediaQuery";
+import CornerAdornment from "./CornerAdornment";
 
 const Navigation = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
     return (
-        <nav className="relative bg-paper-pattern bg-paper drop-shadow-xl w-64">
-            <div className="absolute bg-corner bg-cover w-10 h-10 top-0 left-0" />
-            <div className="absolute bg-corner bg-cover w-10 h-10 top-0 right-0 rotate-90" />
-            <div className="absolute bg-corner bg-cover w-10 h-10 bottom-0 right-0 rotate-180" />
-            <div className="absolute bg-corner bg-cover w-10 h-10 bottom-0 left-0 rotate-270" />
+        <nav className="fixed h-screen bg-paper-pattern bg-paper drop-shadow-xl w-64">
+            <CornerAdornment size={10} />
             <div className="text-xl p-5 text-center tracking-widest">
                 <Link to="/">TRIBUTE</Link>
             </div>

@@ -12,8 +12,9 @@ import GameDetail from "./components/pages/GameDetail";
 function App() {
     return (
         <BrowserRouter>
-            <div className="flex flex-row h-screen font-serif">
+            <div className="flex flex-row min-h-screen w-auto font-serif flex-1">
                 <Navigation />
+                <div className="w-64 h-screen p-5"></div>
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/tributes" element={<Tributes />}></Route>
