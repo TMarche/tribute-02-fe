@@ -35,15 +35,17 @@ const Tributes = () => {
             <div className="flex flex-col gap-10">
                 <div className="text-5xl font-thin text-center">TRIBUTES</div>
                 <div className="flex flex-row justify-center">
-                    <input
-                        className="border-solid border-2 pl-2 outline-none"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                    />
-                    <Button onClick={handleAdd}>Add</Button>
+                    <div className="drop-shadow">
+                        <input
+                            className="border-solid border-2 pl-2 outline-none"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            onKeyPress={handleKeyPress}
+                        />
+                        <Button onClick={handleAdd}>Add</Button>
+                    </div>
                 </div>
-                <div className="flex flex-col gap-10">
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
                     {tributes.map((tribute) => (
                         <TributeOverview
                             key={tribute.tributeId}
