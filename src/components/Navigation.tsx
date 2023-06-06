@@ -6,12 +6,12 @@ const Navigation = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
     return (
-        <nav className="fixed h-screen bg-paper-pattern bg-paper drop-shadow-xl w-64">
+        <nav className="sm:fixed sm:h-screen bg-paper-pattern bg-paper drop-shadow-xl w-full sm:w-64">
             <CornerAdornment size={10} />
             <div className="text-xl p-5 text-center tracking-widest">
                 <Link to="/">TRIBUTE</Link>
             </div>
-            <div className="flex flex-col [&>a]:pt-2 [&>a]:pb-2 [&>a]:pr-5 [&>a]:pl-5">
+            <div className="flex flex-row sm:flex-col [&>a]:pt-2 [&>a]:pb-2 [&>a]:pr-5 [&>a]:pl-5">
                 <Link
                     className="hover:bg-hover-gradient-narrow bg-cover bg-center"
                     to="/tributes"
