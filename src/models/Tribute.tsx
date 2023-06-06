@@ -41,7 +41,7 @@ export class Tribute {
         // Roll 1d10 + con 'level' times
         let hp = 0;
         for (let i = 0; i < level; i++) {
-            hp += Math.random() * 10 + con;
+            hp += Math.ceil(Math.random() * 10 + con);
         }
         return hp;
     }
