@@ -19,7 +19,9 @@ export default {
                 "paper-pattern":
                     "url('https://www.transparenttextures.com/patterns/exclusive-paper.png')",
                 "decor-pattern":
-                    "url('https://www.transparenttextures.com/patterns/black-mamba.png')",
+                    "url('https://www.transparenttextures.com/patterns/gplay.png')",
+                "title-pattern":
+                    "url('https://www.transparenttextures.com/patterns/crissxcross.png')",
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
             },
             colors: {

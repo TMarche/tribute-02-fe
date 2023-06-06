@@ -22,7 +22,7 @@ const TributeOverview = ({
             <div className="flex flex-row">
                 <div
                     className="absolute -top-8 left-0 w-56 h-8 leading-8 text-center overflow-hidden break-words text-white border-solid border-t-2 border-b-2 border-adornment
-                    bg-gradient-to-r from-purple-950 via-purple-800 to-purple-950
+                    bg-decor-pattern bg-purple-950
                 "
                 >
                     {tribute.name}

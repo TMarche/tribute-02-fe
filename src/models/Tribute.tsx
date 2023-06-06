@@ -42,12 +42,10 @@ export class Tribute {
     }
 
     private calculateMaxHp(level: number, con: number) {
-        // Roll 1d10 + con 'level' times
+        // Roll 1d10 + con modifier 'level' times
         let hp = 0;
         for (let i = 0; i < level; i++) {
-            hp += Math.ceil(
-                Math.random() * 10 + this.calculateModifier(this.con)
-            );
+            hp += Math.ceil(Math.random() * 10 + this.calculateModifier(con));
         }
         return hp;
     }

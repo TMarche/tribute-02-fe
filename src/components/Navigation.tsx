@@ -8,8 +8,8 @@ const Navigation = () => {
     return (
         <nav className="sm:fixed sm:h-screen bg-paper-pattern bg-paper drop-shadow-xl w-full sm:w-64">
             <div
-                className="text-xl p-5 text-center text-white tracking-widest
-                bg-gradient-to-r from-purple-950 via-purple-800 to-purple-950
+                className="text-xl p-2 text-center text-white tracking-widest
+                bg-decor-pattern bg-purple-950
                 border-b-4 border-t-4 border-adornment"
             >
                 <Link to="/">TRIBUTE</Link>

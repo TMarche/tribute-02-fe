@@ -10,9 +10,11 @@ import Games from "./components/pages/Games";
 import GameDetail from "./components/pages/GameDetail";
 import { useState } from "react";
 import { Tribute } from "./models/Tribute";
+import { GameEvent } from "./models/GameEvent";
 
 function App() {
     const [tributes, setTributes] = useState<Tribute[]>([]);
+    const [events, setEvents] = useState<GameEvent[]>([]);
     return (
         <BrowserRouter>
             <div className="flex flex-col sm:flex-row min-h-screen w-auto font-serif">
@@ -31,7 +33,12 @@ function App() {
                     ></Route>
                     <Route
                         path="/tributes/:id"
-                        element={<TributeDetail />}
+                        element={
+                            <TributeDetail
+                                tributes={tributes}
+                                setTributes={setTributes}
+                            />
+                        }
                     ></Route>
                     <Route path="/events" element={<Events />}></Route>
                     <Route path="/maps" element={<Maps />}></Route>
