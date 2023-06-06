@@ -1,17 +1,25 @@
 const CornerAdornment = ({ size }: { size: number }) => {
+    const mapSize = (size) => {
+        return `${size * 0.25}rem`;
+    };
+
     return (
         <div>
             <div
-                className={`absolute bg-corner bg-cover w-${size} h-${size} top-0 left-0`}
+                style={{ width: mapSize(size), height: mapSize(size) }}
+                className={`absolute bg-corner bg-cover top-0 left-0`}
             />
             <div
-                className={`absolute bg-corner bg-cover w-${size} h-${size} top-0 right-0 rotate-90`}
+                style={{ width: mapSize(size), height: mapSize(size) }}
+                className={`absolute bg-corner bg-cover top-0 right-0 rotate-90`}
             />
             <div
-                className={`absolute bg-corner bg-cover w-${size} h-${size} bottom-0 right-0 rotate-180`}
+                style={{ width: mapSize(size), height: mapSize(size) }}
+                className={`absolute bg-corner bg-cover bottom-0 right-0 rotate-180`}
             />
             <div
-                className={`absolute bg-corner bg-cover w-${size} h-${size} bottom-0 left-0 rotate-270`}
+                style={{ width: mapSize(size), height: mapSize(size) }}
+                className={`absolute bg-corner bg-cover bottom-0 left-0 rotate-270`}
             />
         </div>
     );

@@ -5,6 +5,11 @@ import plugin from "tailwindcss";
 export default {
     content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
     theme: {
+        screens: {
+            sm: "720px",
+            md: "1040px",
+            lg: "1440px",
+        },
         extend: {
             backgroundImage: {
                 corner: "url('/Corner.png')",
@@ -33,11 +38,6 @@ export default {
                 sm: "0 1px 2px var(--tw-shadow-color)",
                 DEFAULT: "0 2px 4px var(--tw-shadow-color)",
                 lg: "0 8px 16px var(--tw-shadow-color)",
-            },
-            width: {
-                5: "1.25rem",
-                8: "2rem",
-                10: "2.5rem",
             },
         },
     },
