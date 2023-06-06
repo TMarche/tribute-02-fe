@@ -1,5 +1,5 @@
 const CornerAdornment = ({ size }: { size: number }) => {
-    const mapSize = (size) => {
+    const mapSize = (size: number) => {
         return `${size * 0.25}rem`;
     };
 

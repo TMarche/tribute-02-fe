@@ -8,8 +8,11 @@ import Maps from "./components/pages/Maps";
 import Items from "./components/pages/Items";
 import Games from "./components/pages/Games";
 import GameDetail from "./components/pages/GameDetail";
+import { useState } from "react";
+import { Tribute } from "./models/Tribute";
 
 function App() {
+    const [tributes, setTributes] = useState<Tribute[]>([]);
     return (
         <BrowserRouter>
             <div className="flex flex-col sm:flex-row min-h-screen w-auto font-serif">
@@ -17,7 +20,15 @@ function App() {
                 <div className="sm:w-64 sm:h-screen"></div>
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
-                    <Route path="/tributes" element={<Tributes />}></Route>
+                    <Route
+                        path="/tributes"
+                        element={
+                            <Tributes
+                                tributes={tributes}
+                                setTributes={setTributes}
+                            />
+                        }
+                    ></Route>
                     <Route
                         path="/tributes/:id"
                         element={<TributeDetail />}

@@ -7,11 +7,14 @@ const Navigation = () => {
 
     return (
         <nav className="sm:fixed sm:h-screen bg-paper-pattern bg-paper drop-shadow-xl w-full sm:w-64">
-            <CornerAdornment size={10} />
-            <div className="text-xl p-5 text-center tracking-widest">
+            <div
+                className="text-xl p-5 text-center text-white tracking-widest
+                bg-gradient-to-r from-purple-950 via-purple-800 to-purple-950
+                border-b-4 border-t-4 border-adornment"
+            >
                 <Link to="/">TRIBUTE</Link>
             </div>
-            <div className="flex flex-row sm:flex-col [&>a]:pt-2 [&>a]:pb-2 [&>a]:pr-5 [&>a]:pl-5">
+            <div className="flex flex-row justify-around sm:flex-col [&>a]:pt-2 [&>a]:pb-2 [&>a]:pr-5 [&>a]:pl-5 [&>a]:sm:border-b-4 [&>a]:border-adornment [&>a]:border-dotted">
                 <Link
                     className="hover:bg-hover-gradient-narrow bg-cover bg-center"
                     to="/tributes"

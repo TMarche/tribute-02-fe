@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import { Tribute } from "../models/Tribute";
 import Button from "./Button";
-import CornerAdornment from "./CornerAdornment";
 import LinkButton from "./LinkButton";
 
 const getHpColor = (current: number, max: number) => {
@@ -23,7 +21,7 @@ const TributeOverview = ({
         <div className="relative flex bg-white flex-col gap-1 border-solid border-2 w-full drop-shadow-xl">
             <div className="flex flex-row">
                 <div
-                    className="absolute -top-8 left-0 w-56 h-8 leading-8 text-center overflow-ellipsis text-white border-solid border-t-2 border-b-2 border-adornment
+                    className="absolute -top-8 left-0 w-56 h-8 leading-8 text-center overflow-hidden break-words text-white border-solid border-t-2 border-b-2 border-adornment
                     bg-gradient-to-r from-purple-950 via-purple-800 to-purple-950
                 "
                 >
