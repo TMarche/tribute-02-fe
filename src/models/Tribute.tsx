@@ -37,11 +37,17 @@ export class Tribute {
         return retval;
     }
 
+    private calculateModifier(stat: number) {
+        return Math.floor((stat - 10) / 2);
+    }
+
     private calculateMaxHp(level: number, con: number) {
         // Roll 1d10 + con 'level' times
         let hp = 0;
         for (let i = 0; i < level; i++) {
-            hp += Math.ceil(Math.random() * 10 + con);
+            hp += Math.ceil(
+                Math.random() * 10 + this.calculateModifier(this.con)
+            );
         }
         return hp;
     }

@@ -11,7 +11,7 @@ const Button = ({
         <div className="relative inline-block w-24 bg-paper hover:bg-hover-gradient bg-cover bg-no-repeat bg-center">
             <CornerAdornment size={5} />
             <button
-                className="w-24 h-8 font-serif bg-paper-pattern "
+                className="w-24 h-8 font-serif bg-paper-pattern"
                 onClick={onClick}
             >
                 {children}

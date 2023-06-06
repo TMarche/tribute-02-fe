@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Tribute } from "../models/Tribute";
 import Button from "./Button";
 import CornerAdornment from "./CornerAdornment";
+import LinkButton from "./LinkButton";
 
 const getHpColor = (current: number, max: number) => {
     if (current / max >= 0.8) return "text-green-500";
@@ -20,9 +21,12 @@ const TributeOverview = ({
 }) => {
     return (
         <div className="relative flex bg-white flex-col gap-1 border-solid border-2 w-full drop-shadow-xl">
-            {/* <CornerAdornment size={8} /> */}
             <div className="flex flex-row">
-                <div className="absolute -top-8 left-0 w-56 h-8 leading-8 text-center overflow-ellipsis text-white bg-purple-950 border-solid border-t-2 border-b-2 border-adornment">
+                <div
+                    className="absolute -top-8 left-0 w-56 h-8 leading-8 text-center overflow-ellipsis text-white border-solid border-t-2 border-b-2 border-adornment
+                    bg-gradient-to-r from-purple-950 via-purple-800 to-purple-950
+                "
+                >
                     {tribute.name}
                 </div>
                 <div
@@ -30,7 +34,6 @@ const TributeOverview = ({
                     className={`relative h-full w-20 float-left bg-cover bg-center`}
                 ></div>
                 <div className="relative flex-1 flex flex-wrap gap-2 pl-5 pt-2 pr-5 pb-5">
-                    {/* <CornerAdornment size={8} /> */}
                     <div>{tribute.level}</div>
                     <div
                         className={`font-bold ${getHpColor(
@@ -58,9 +61,9 @@ const TributeOverview = ({
                 >
                     Delete
                 </Button>
-                <Link to={`/tributes/${tribute.tributeId}`}>
-                    <Button>Edit</Button>
-                </Link>
+                <LinkButton to={`/tributes/${tribute.tributeId}`}>
+                    Edit
+                </LinkButton>
             </div>
         </div>
     );

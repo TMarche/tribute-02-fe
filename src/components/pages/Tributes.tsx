@@ -32,12 +32,18 @@ const Tributes = () => {
     return (
         <div className="relative flex-1 p-10">
             <CornerAdornment size={10} />
-            <div className="flex flex-col gap-10">
-                <div className="text-5xl font-thin text-center">TRIBUTES</div>
+            <div className="flex flex-col gap-16">
+                <div className="w-full flex flex-row justify-center">
+                    <div className="relative text-5xl drop-shadow-xl bg-paper bg-paper-pattern font-thin text-center p-5 w-96">
+                        TRIBUTES
+                        <CornerAdornment size={8} />
+                    </div>
+                </div>
                 <div className="flex flex-row justify-center">
                     <div className="drop-shadow">
                         <input
-                            className="border-solid border-2 pl-2 outline-none"
+                            placeholder="name"
+                            className="border-solid border-2 pl-2 h-8"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             onKeyPress={handleKeyPress}
