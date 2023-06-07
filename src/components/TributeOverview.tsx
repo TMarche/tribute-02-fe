@@ -1,12 +1,7 @@
+import Helpers from "../helpers/helpers";
 import { Tribute } from "../models/Tribute";
 import Button from "./Button";
 import LinkButton from "./LinkButton";
-
-const getHpColor = (current: number, max: number) => {
-    if (current / max >= 0.8) return "text-green-500";
-    if (current / max >= 0.4) return "text-yellow-500";
-    return "text-red-500";
-};
 
 const TributeOverview = ({
     tribute,
@@ -34,7 +29,7 @@ const TributeOverview = ({
                 <div className="relative flex-1 flex flex-wrap gap-2 pl-5 pt-2 pr-5 pb-5">
                     <div>{tribute.level}</div>
                     <div
-                        className={`font-bold ${getHpColor(
+                        className={`font-bold ${Helpers.getHpColor(
                             tribute.currentHp,
                             tribute.maxHp
                         )}`}
