@@ -1,4 +1,5 @@
 import Helpers from "../helpers/helpers";
+import { getClassById } from "../models/Classes";
 import { Tribute } from "../models/Tribute";
 import Button from "./Button";
 import LinkButton from "./LinkButton";
@@ -27,6 +28,7 @@ const TributeOverview = ({
                     className={`relative h-full w-20 float-left bg-cover bg-center`}
                 ></div>
                 <div className="relative flex-1 flex flex-wrap gap-2 pl-5 pt-2 pr-5 pb-5">
+                    <div>{getClassById(tribute.classId)?.name}</div>
                     <div>{tribute.level}</div>
                     <div
                         className={`font-bold ${Helpers.getHpColor(

@@ -1,9 +1,14 @@
 import { faker } from "@faker-js/faker";
+import { TRIBUTE_CLASS_TABLE, getClassById } from "./Classes";
+import { DiceRoller } from "dice-roller-parser";
 
 export class Tribute {
     static nextId = 0;
+    static STAT_DICE = "4d6kh3";
+    static LEVEL_DICE = "4d6kh3";
 
     tributeId: number;
+    classId: number;
     name: string;
     str: number;
     dex: number;
@@ -14,20 +19,24 @@ export class Tribute {
     maxHp: number;
     currentHp: number;
     level: number;
+    movement: number;
     image: string;
 
     constructor(name: string) {
+        const diceRoller = new DiceRoller();
         this.tributeId = this.getNextId();
+        this.classId = Math.floor(Math.random() * TRIBUTE_CLASS_TABLE.length);
         this.name = name;
-        this.level = Math.ceil(Math.random() * 10);
-        this.str = Math.ceil(Math.random() * 15) + 5;
-        this.dex = Math.ceil(Math.random() * 15) + 5;
-        this.con = Math.ceil(Math.random() * 15) + 5;
-        this.int = Math.ceil(Math.random() * 15) + 5;
-        this.wis = Math.ceil(Math.random() * 15) + 5;
-        this.cha = Math.ceil(Math.random() * 15) + 5;
-        this.maxHp = this.calculateMaxHp(this.level, this.con);
-        this.currentHp = Math.ceil(Math.random() * this.maxHp);
+        this.level = diceRoller.rollValue(Tribute.LEVEL_DICE);
+        this.str = diceRoller.rollValue(Tribute.STAT_DICE);
+        this.dex = diceRoller.rollValue(Tribute.STAT_DICE);
+        this.con = diceRoller.rollValue(Tribute.STAT_DICE);
+        this.int = diceRoller.rollValue(Tribute.STAT_DICE);
+        this.wis = diceRoller.rollValue(Tribute.STAT_DICE);
+        this.cha = diceRoller.rollValue(Tribute.STAT_DICE);
+        this.maxHp = this.calculateMaxHp(this.level, this.classId, this.con);
+        this.currentHp = this.maxHp;
+        this.movement = Math.ceil(Math.random() * 3) + 2;
         this.image = faker.image.avatar();
     }
 
@@ -41,11 +50,14 @@ export class Tribute {
         return Math.floor((stat - 10) / 2);
     }
 
-    private calculateMaxHp(level: number, con: number) {
-        // Roll 1d10 + con modifier 'level' times
+    private calculateMaxHp(level: number, classId: number, con: number) {
+        const diceRoller = new DiceRoller();
+        let hitDie = getClassById(classId)?.hitDie;
+        if (hitDie === undefined) hitDie = "1d10";
+
         let hp = 0;
         for (let i = 0; i < level; i++) {
-            hp += Math.ceil(Math.random() * 10 + this.calculateModifier(con));
+            hp += diceRoller.rollValue(hitDie) + this.calculateModifier(con);
         }
         return hp;
     }

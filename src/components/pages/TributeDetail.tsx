@@ -4,6 +4,11 @@ import { useParams } from "react-router-dom";
 import GridLayout from "../layouts/GridLayout";
 import StatsDetail from "../StatsDetail";
 import ItemsDetail from "../ItemsDetail";
+import PersonalInformationDetail from "../PersonalInformationDetail";
+import EquipmentDetail from "../EquipmentDetail";
+import AlliesDetail from "../AlliesDetail";
+import EnemiesDetail from "../EnemiesDetail";
+import AttackDetail from "../AttackDetail";
 
 const TributeDetail = ({
     tributes,
@@ -27,9 +32,19 @@ const TributeDetail = ({
                     <PageHeader>{tribute.name}</PageHeader>
                     <div className="p-5">
                         <GridLayout>
-                            <StatsDetail tribute={tribute}></StatsDetail>
-                            <ItemsDetail tribute={tribute}></ItemsDetail>
-                            <div>Test</div>
+                            <div className="flex flex-col gap-5">
+                                <PersonalInformationDetail tribute={tribute} />
+                                <StatsDetail tribute={tribute} />
+                            </div>
+                            <div className="flex flex-col gap-5">
+                                <EquipmentDetail tribute={tribute} />
+                                <AttackDetail tribute={tribute} />
+                                <ItemsDetail tribute={tribute} />
+                            </div>
+                            <div className="flex flex-col gap-5">
+                                <AlliesDetail tribute={tribute} />
+                                <EnemiesDetail tribute={tribute} />
+                            </div>
                         </GridLayout>
                     </div>
                 </>
