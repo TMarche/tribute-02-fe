@@ -1,5 +1,5 @@
 import Helpers from "../helpers/helpers";
-import { getClassById } from "../models/Classes";
+import { getClassById } from "../models/tables/Classes";
 import { Tribute } from "../models/Tribute";
 import Button from "./Button";
 import LinkButton from "./LinkButton";

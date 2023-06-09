@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { TRIBUTE_CLASS_TABLE, getClassById } from "./Classes";
+import { TRIBUTE_CLASS_TABLE, getClassById } from "./tables/Classes";
 import { DiceRoller } from "dice-roller-parser";
 
 export class Tribute {

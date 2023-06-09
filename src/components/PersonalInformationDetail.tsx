@@ -1,6 +1,6 @@
 import { Tribute } from "../models/Tribute";
 import Helpers from "../helpers/helpers";
-import { getClassById } from "../models/Classes";
+import { getClassById } from "../models/tables/Classes";
 
 const PersonalInformationDetail = ({ tribute }: { tribute: Tribute }) => {
     return (
