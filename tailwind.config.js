@@ -14,6 +14,12 @@ export default {
         extend: {
             backgroundImage: {
                 corner: "url('/Corner.png')",
+                shield: "url('/Icons/png/001-shield.png')",
+                armor: "url('/Icons/png/002-armor.png')",
+                sword: "url('/Icons/png/003-sword.png')",
+                axe: "url('/Icons/png/004-axe.png')",
+                spear: "url('/Icons/png/005-spear.png')",
+                mace: "url('/Icons/png/006-mace.png')",
                 "hover-gradient": "url('/GradientBorder.png')",
                 "hover-gradient-narrow": "url('/GradientBorderNarrow2.png')",
                 "paper-pattern":

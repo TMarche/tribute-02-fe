@@ -1,5 +1,5 @@
 import Helpers from "../helpers/helpers";
-import { getLevelInfo } from "../models/LevelInfo";
+import { getLevelInfo } from "../models/tables/LevelInfo";
 import { Tribute } from "../models/Tribute";
 
 const AttackDetail = ({ tribute }: { tribute: Tribute }) => {

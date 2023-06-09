@@ -11,9 +11,12 @@ import GameDetail from "./components/pages/GameDetail";
 import { useState } from "react";
 import { Tribute } from "./models/Tribute";
 import { GameEvent } from "./models/GameEvent";
+import { BASE_ITEMS_TABLE } from "./models/tables/BaseItems";
+import { Item } from "./models/Item";
 
 function App() {
     const [tributes, setTributes] = useState<Tribute[]>([]);
+    const [items, setItems] = useState<Item[]>(BASE_ITEMS_TABLE);
     const [events, setEvents] = useState<GameEvent[]>([]);
     return (
         <BrowserRouter>
@@ -42,7 +45,10 @@ function App() {
                     ></Route>
                     <Route path="/events" element={<Events />}></Route>
                     <Route path="/maps" element={<Maps />}></Route>
-                    <Route path="/items" element={<Items />}></Route>
+                    <Route
+                        path="/items"
+                        element={<Items items={items} setItems={setItems} />}
+                    ></Route>
                     <Route path="/games" element={<Games />}></Route>
                     <Route path="/games/:id" element={<GameDetail />}></Route>
                 </Routes>

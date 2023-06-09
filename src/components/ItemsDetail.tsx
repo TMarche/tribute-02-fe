@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { StrictModeDroppable } from "./drag-and-drop/StrictModeDroppable";
 
 // fake data generator
-const getItems = (count: number) =>
+const generateItems = (count: number) =>
     Array.from({ length: count }, (v, k) => k).map((k) => ({
         id: `item-${k}`,
         content: `item ${k}`,
@@ -42,7 +42,7 @@ const getListStyle = (isDraggingOver: boolean) => ({
 const grid = 8;
 
 const ItemsDetail = ({ tribute }: { tribute: Tribute }) => {
-    const [items, setItems] = useState(getItems(10));
+    const [items, setItems] = useState(generateItems(10));
 
     const onDragEnd = (result: any) => {
         // dropped outside the list
@@ -67,107 +67,21 @@ const ItemsDetail = ({ tribute }: { tribute: Tribute }) => {
             >
                 Items
             </div>
-            <div className="relative">
-                <DragDropContext onDragEnd={onDragEnd}>
-                    <StrictModeDroppable droppableId="droppable">
-                        {(provided, snapshot) => (
-                            <div
-                                {...provided.droppableProps}
-                                ref={provided.innerRef}
-                                style={getListStyle(snapshot.isDraggingOver)}
-                            >
-                                {items.map((item, index) => (
-                                    <Draggable
-                                        key={item.id}
-                                        draggableId={String(item.id)}
-                                        index={index}
-                                    >
-                                        {(provided, snapshot) => (
-                                            <div
-                                                className="draggable"
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                style={getItemStyle(
-                                                    snapshot.isDragging,
-                                                    provided.draggableProps
-                                                        .style
-                                                )}
-                                            >
-                                                {item.content}
-                                            </div>
-                                        )}
-                                    </Draggable>
-                                ))}
-                                {provided.placeholder}
-                            </div>
-                        )}
-                    </StrictModeDroppable>
-                </DragDropContext>
-            </div>
 
-            {/* <DragDropContext>
-                <Droppable>
-                    <div className="p-5 border-2 border-t-0 flex flex-col gap-2 bg-white">
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Iron Sword (PH)
-                            </div>
-                        </div>
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Iron Sword (PH)
-                            </div>
-                        </div>
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Iron Sword (PH)
-                            </div>
-                        </div>
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Iron Sword (PH)
-                            </div>
-                        </div>
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Iron Sword (PH)
-                            </div>
-                        </div>
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Iron Sword (PH)
-                            </div>
-                        </div>
-                        <div className="flex flex-row border-2 p-1">
-                            <div className="flex-1 text-left">
-                                <DragIndicatorIcon />
-                            </div>
-                            <div className="flex-1 text-right">
-                                Full Plate (PH)
-                            </div>
-                        </div>
-                    </div>
-                </Droppable>
-            </DragDropContext> */}
+            <div className="p-5 border-2 border-t-0 flex flex-col gap-2 bg-white">
+                <div className="flex flex-row border-2 p-1">
+                    <div className="flex-1 text-right">Iron Sword (PH)</div>
+                </div>
+                <div className="flex flex-row border-2 p-1">
+                    <div className="flex-1 text-right">Iron Sword (PH)</div>
+                </div>
+                <div className="flex flex-row border-2 p-1">
+                    <div className="flex-1 text-right">Iron Sword (PH)</div>
+                </div>
+                <div className="flex flex-row border-2 p-1">
+                    <div className="flex-1 text-right">Full Plate (PH)</div>
+                </div>
+            </div>
         </div>
     );
 };
