@@ -9,18 +9,28 @@ import EquipmentDetail from "../EquipmentDetail";
 import AlliesDetail from "../AlliesDetail";
 import EnemiesDetail from "../EnemiesDetail";
 import AttackDetail from "../AttackDetail";
+import { Item } from "../../models/Item";
+import { TributeItem } from "../../models/mappings/TriibuteItem";
 
 const TributeDetail = ({
     tributes,
+    items,
+    tributesItems,
     setTributes,
 }: {
     tributes: Tribute[];
+    items: Item[];
+    tributesItems: TributeItem[];
     setTributes: (tributes: Tribute[]) => void;
 }) => {
     const { id } = useParams();
 
     const tribute = tributes.find(
         (tribute) => tribute.tributeId === Number(id)
+    );
+
+    const tributeItems = tributesItems.filter(
+        (ti) => ti.tributeId === tribute?.tributeId
     );
 
     const renderContent = () => {
@@ -39,7 +49,11 @@ const TributeDetail = ({
                             <div className="flex flex-col gap-5">
                                 <EquipmentDetail tribute={tribute} />
                                 <AttackDetail tribute={tribute} />
-                                <ItemsDetail tribute={tribute} />
+                                <ItemsDetail
+                                    tribute={tribute}
+                                    items={items}
+                                    tributeItems={tributeItems}
+                                />
                             </div>
                             <div className="flex flex-col gap-5">
                                 <AlliesDetail tribute={tribute} />

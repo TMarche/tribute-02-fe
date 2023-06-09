@@ -1,4 +1,6 @@
 import Helpers from "../helpers/helpers";
+import { Item } from "../models/Item";
+import { TributeItem } from "../models/mappings/TriibuteItem";
 import { getClassById } from "../models/tables/Classes";
 import { Tribute } from "../models/Tribute";
 import Button from "./Button";
@@ -6,10 +8,14 @@ import LinkButton from "./LinkButton";
 
 const TributeOverview = ({
     tribute,
+    items,
+    tributesItems,
     setTributes,
     deleteTribute,
 }: {
     tribute: Tribute;
+    items: Item[];
+    tributesItems: TributeItem[];
     setTributes: (tributes: Tribute[]) => void;
     deleteTribute: (tribute: Tribute) => void;
 }) => {
@@ -42,10 +48,19 @@ const TributeOverview = ({
                         {tribute.str} {tribute.dex} {tribute.con} {tribute.int}{" "}
                         {tribute.wis} {tribute.cha}
                     </div>
-                    <div>Iron Sword</div>
-                    <div>Iron Sword</div>
-                    <div>Iron Sword</div>
-                    <div>Iron Sword</div>
+                    {tributesItems
+                        .filter((ti) => ti.tributeId === tribute.tributeId)
+                        .map((ti) => {
+                            return (
+                                <div>
+                                    {
+                                        items.find(
+                                            (item) => item.itemId === ti.itemId
+                                        )?.name
+                                    }
+                                </div>
+                            );
+                        })}
                 </div>
             </div>
             <div className="absolute -bottom-4 right-4 flex flex-row gap-1 justify-end">

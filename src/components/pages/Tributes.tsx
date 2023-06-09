@@ -4,13 +4,21 @@ import TributeOverview from "../TributeOverview";
 import PageHeader from "../PageHeader";
 import TributeForm from "../forms/TributeForm";
 import GridLayout from "../layouts/GridLayout";
+import { Item } from "../../models/Item";
+import { TributeItem } from "../../models/mappings/TriibuteItem";
 
 const Tributes = ({
     tributes,
+    items,
+    tributesItems,
     setTributes,
+    setTributesItems,
 }: {
     tributes: Tribute[];
+    items: Item[];
+    tributesItems: TributeItem[];
     setTributes: (tributes: Tribute[]) => void;
+    setTributesItems: (tributesItems: TributeItem[]) => void;
 }) => {
     const [name, setName] = useState("");
 
@@ -28,7 +36,10 @@ const Tributes = ({
                             name={name}
                             setName={setName}
                             tributes={tributes}
+                            items={items}
+                            tributesItems={tributesItems}
                             setTributes={setTributes}
+                            setTributesItems={setTributesItems}
                         />
                     </div>
                     <GridLayout>
@@ -36,6 +47,8 @@ const Tributes = ({
                             <TributeOverview
                                 key={tribute.tributeId}
                                 tribute={tribute}
+                                items={items}
+                                tributesItems={tributesItems}
                                 setTributes={setTributes}
                                 deleteTribute={handleDelete}
                             />
