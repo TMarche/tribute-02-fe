@@ -1,6 +1,12 @@
+import PageHeader from "../PageHeader";
+
 const Events = () => {
-  return (
-    <div>This is the Events page</div>
-  )
-}
-export default Events
+    return (
+        <div className="relative flex-1 sm:p-10  ">
+            <div className="flex flex-col border-2 bg-white drop-shadow-xl">
+                <PageHeader>EVENTS NOT IMPLEMENTED</PageHeader>
+            </div>
+        </div>
+    );
+};
+export default Events;

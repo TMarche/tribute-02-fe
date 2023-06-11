@@ -47,9 +47,18 @@ const TributeForm = ({
         const armor = armors[Math.floor(Math.random() * armors.length)];
         const shield = shields[Math.floor(Math.random() * shields.length)];
 
-        if (weapon) tributeItems.push(weapon);
-        if (armor) tributeItems.push(armor);
-        if (shield) tributeItems.push(shield);
+        if (weapon) {
+            tributeItems.push(weapon);
+            tribute.weaponId = weapon.itemId;
+        }
+        if (armor) {
+            tributeItems.push(armor);
+            tribute.armorId = armor.itemId;
+        }
+        if (shield) {
+            tributeItems.push(shield);
+            tribute.shieldId = shield.itemId;
+        }
 
         // let itemsCopy = [...items];
         // // Grab three random items from the items list

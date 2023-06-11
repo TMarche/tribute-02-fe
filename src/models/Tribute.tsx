@@ -21,6 +21,9 @@ export class Tribute {
     level: number;
     movement: number;
     image: string;
+    weaponId: number;
+    armorId: number;
+    shieldId: number;
 
     constructor(name: string) {
         const diceRoller = new DiceRoller();
@@ -38,6 +41,9 @@ export class Tribute {
         this.currentHp = this.maxHp;
         this.movement = Math.ceil(Math.random() * 3) + 2;
         this.image = faker.image.avatar();
+        this.weaponId = 0;
+        this.armorId = 0;
+        this.shieldId = 0;
     }
 
     private getNextId() {

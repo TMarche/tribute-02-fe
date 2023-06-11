@@ -43,12 +43,18 @@ const TributeDetail = ({
                     <div className="p-5">
                         <GridLayout>
                             <div className="flex flex-col gap-5">
-                                <PersonalInformationDetail tribute={tribute} />
+                                <PersonalInformationDetail
+                                    tribute={tribute}
+                                    items={items}
+                                />
                                 <StatsDetail tribute={tribute} />
                             </div>
                             <div className="flex flex-col gap-5">
-                                <EquipmentDetail tribute={tribute} />
-                                <AttackDetail tribute={tribute} />
+                                <EquipmentDetail
+                                    tribute={tribute}
+                                    items={items}
+                                />
+                                <AttackDetail tribute={tribute} items={items} />
                                 <ItemsDetail
                                     tribute={tribute}
                                     items={items}

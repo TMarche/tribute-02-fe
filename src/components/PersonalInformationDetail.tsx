@@ -1,8 +1,15 @@
 import { Tribute } from "../models/Tribute";
 import Helpers from "../helpers/helpers";
 import { getClassById } from "../models/tables/Classes";
+import { Item } from "../models/Item";
 
-const PersonalInformationDetail = ({ tribute }: { tribute: Tribute }) => {
+const PersonalInformationDetail = ({
+    tribute,
+    items,
+}: {
+    tribute: Tribute;
+    items: Item[];
+}) => {
     return (
         <div className="drop-shadow-xl">
             <div
@@ -48,7 +55,7 @@ const PersonalInformationDetail = ({ tribute }: { tribute: Tribute }) => {
                         <div className="flex flex-row border-b-2">
                             <div>AC</div>
                             <div className="flex-1 text-right">
-                                {Helpers.calculateAC(tribute)}
+                                {Helpers.calculateAC(tribute, items)}
                             </div>
                         </div>
                         <div className="flex flex-row border-b-2">

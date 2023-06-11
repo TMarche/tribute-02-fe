@@ -1,8 +1,18 @@
 import Helpers from "../helpers/helpers";
+import { Item } from "../models/Item";
 import { getLevelInfo } from "../models/tables/LevelInfo";
 import { Tribute } from "../models/Tribute";
+import { Weapon } from "../models/Weapon";
 
-const AttackDetail = ({ tribute }: { tribute: Tribute }) => {
+const AttackDetail = ({
+    tribute,
+    items,
+}: {
+    tribute: Tribute;
+    items: Item[];
+}) => {
+    const weapon = items.find((item) => item.itemId === tribute.weaponId);
+
     return (
         <div className="drop-shadow-xl">
             <div
@@ -13,37 +23,19 @@ const AttackDetail = ({ tribute }: { tribute: Tribute }) => {
             </div>
             <div className="p-5 border-2 border-t-0 flex flex-col gap-2 bg-white">
                 <div className="flex flex-row border-2 p-1 w-full items-center">
-                    <div className="flex-1 text-left">Iron Sword</div>
+                    <div className="flex-1 text-left">{weapon?.name}</div>
                     <div className="flex-1 text-center">
+                        Hit:{" "}
                         {Helpers.formatModifier(
                             (getLevelInfo(tribute.level)?.proficiencyBonus ||
                                 0) + Helpers.calculateModifier(tribute.str)
                         )}
                     </div>
                     <div className="flex-1 text-right">
-                        1d10
+                        Damage: {(weapon as Weapon)?.damageDice}
                         {Helpers.formatModifier(
                             Helpers.calculateModifier(tribute.str)
                         )}
-                        (PH)
-                    </div>
-                </div>
-                <div className="flex flex-row border-2 p-1 w-full items-center">
-                    <div className="flex-1 text-left">
-                        Fire Bolt of agonizing pain
-                    </div>
-                    <div className="flex-1 text-center">
-                        {Helpers.formatModifier(
-                            (getLevelInfo(tribute.level)?.proficiencyBonus ||
-                                0) + Helpers.calculateModifier(tribute.str)
-                        )}
-                    </div>
-                    <div className="flex-1 text-right">
-                        1d10
-                        {Helpers.formatModifier(
-                            Helpers.calculateModifier(tribute.str)
-                        )}
-                        (PH)
                     </div>
                 </div>
             </div>

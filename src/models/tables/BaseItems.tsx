@@ -115,13 +115,13 @@ export const BASE_WEAPON_TABLE: Weapon[] = [
         "Maul",
         getIconByName("Mace")?.iconId || 0,
         "2d6",
-        Handedness.One
+        Handedness.Two
     ),
     new Weapon(
         "Greataxe",
         getIconByName("Axe")?.iconId || 0,
         "1d12",
-        Handedness.One
+        Handedness.Two
     ),
 ];
 
