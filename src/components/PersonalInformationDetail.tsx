@@ -2,6 +2,7 @@ import { Tribute } from "../models/Tribute";
 import Helpers from "../helpers/helpers";
 import { getClassById } from "../models/tables/Classes";
 import { Item } from "../models/Item";
+import { useState } from "react";
 
 const PersonalInformationDetail = ({
     tribute,
@@ -10,6 +11,8 @@ const PersonalInformationDetail = ({
     tribute: Tribute;
     items: Item[];
 }) => {
+    const [movement, setMovement] = useState(tribute.movement);
+
     return (
         <div className="drop-shadow-xl">
             <div
@@ -49,7 +52,13 @@ const PersonalInformationDetail = ({
                         <div className="flex flex-row border-b-2">
                             <div>Mv</div>
                             <div className="flex-1 text-right">
-                                {tribute.movement}
+                                <input
+                                    className="text-right w-5"
+                                    value={movement}
+                                    onChange={(e) => {
+                                        setMovement(Number(e.target.value));
+                                    }}
+                                />
                             </div>
                         </div>
                         <div className="flex flex-row border-b-2">

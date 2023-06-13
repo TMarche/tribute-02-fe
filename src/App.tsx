@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./components/pages/Home";
 import Tributes from "./components/pages/Tributes";
-import TributeDetail from "./components/pages/TributeDetail";
+import TributeDetail from "./components/pages/TributeEdit";
 import Events from "./components/pages/Events";
 import Maps from "./components/pages/Maps";
 import Items from "./components/pages/Items";
