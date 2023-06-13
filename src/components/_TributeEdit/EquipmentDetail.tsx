@@ -1,5 +1,5 @@
-import { Item } from "../models/Item";
-import { Tribute } from "../models/Tribute";
+import { Item } from "../../models/Item";
+import { Tribute } from "../../models/Tribute";
 
 const EquipmentDetail = ({
     tribute,

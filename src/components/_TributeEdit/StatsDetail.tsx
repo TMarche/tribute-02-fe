@@ -1,4 +1,4 @@
-import { Tribute } from "../models/Tribute";
+import { Tribute } from "../../models/Tribute";
 import StatBlock from "./StatBlock";
 
 const StatDetail = ({ tribute }: { tribute: Tribute }) => {

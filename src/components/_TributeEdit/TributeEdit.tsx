@@ -1,14 +1,14 @@
 import { Tribute } from "../../models/Tribute";
-import PageHeader from "../PageHeader";
+import PageHeader from "../generic/PageHeader";
 import { useParams } from "react-router-dom";
-import GridLayout from "../layouts/GridLayout";
-import StatsDetail from "../StatsDetail";
-import ItemsDetail from "../ItemsDetail";
-import PersonalInformationDetail from "../PersonalInformationDetail";
-import EquipmentDetail from "../EquipmentDetail";
-import AlliesDetail from "../AlliesDetail";
-import EnemiesDetail from "../EnemiesDetail";
-import AttackDetail from "../AttackDetail";
+import GridLayout from "../generic/GridLayout";
+import StatsDetail from "./StatsDetail";
+import ItemsDetail from "./ItemsDetail";
+import PersonalInformationDetail from "./PersonalInformationDetail";
+import EquipmentDetail from "./EquipmentDetail";
+import AlliesDetail from "./AlliesDetail";
+import EnemiesDetail from "./EnemiesDetail";
+import AttackDetail from "./AttackDetail";
 import { Item } from "../../models/Item";
 import { TributeItem } from "../../models/mappings/TriibuteItem";
 

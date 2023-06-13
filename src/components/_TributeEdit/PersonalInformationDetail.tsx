@@ -1,7 +1,7 @@
-import { Tribute } from "../models/Tribute";
-import Helpers from "../helpers/helpers";
-import { getClassById } from "../models/tables/Classes";
-import { Item } from "../models/Item";
+import { Tribute } from "../../models/Tribute";
+import Helpers from "../../helpers/helpers";
+import { getClassById } from "../../models/tables/Classes";
+import { Item } from "../../models/Item";
 import { useState } from "react";
 
 const PersonalInformationDetail = ({

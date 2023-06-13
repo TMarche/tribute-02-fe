@@ -1,7 +1,7 @@
-import { Item } from "../models/Item";
-import { Tribute } from "../models/Tribute";
-import { TributeItem } from "../models/mappings/TriibuteItem";
-import { getIconById } from "../models/tables/BaseIcons";
+import { Item } from "../../models/Item";
+import { Tribute } from "../../models/Tribute";
+import { TributeItem } from "../../models/mappings/TriibuteItem";
+import { getIconById } from "../../models/tables/BaseIcons";
 
 const ItemsDetail = ({
     tribute,

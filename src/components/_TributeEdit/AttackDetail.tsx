@@ -1,8 +1,8 @@
-import Helpers from "../helpers/helpers";
-import { Item } from "../models/Item";
-import { getLevelInfo } from "../models/tables/LevelInfo";
-import { Tribute } from "../models/Tribute";
-import { Weapon } from "../models/Weapon";
+import Helpers from "../../helpers/helpers";
+import { Item } from "../../models/Item";
+import { getLevelInfo } from "../../models/tables/LevelInfo";
+import { Tribute } from "../../models/Tribute";
+import { Weapon } from "../../models/Weapon";
 
 const AttackDetail = ({
     tribute,

@@ -1,5 +1,5 @@
-import Helpers from "../helpers/helpers";
-import CornerAdornment from "./CornerAdornment";
+import Helpers from "../../helpers/helpers";
+import CornerAdornment from "../generic/CornerAdornment";
 
 const StatBlock = ({ name, value }: { name: string; value: number }) => {
     const max = 20;

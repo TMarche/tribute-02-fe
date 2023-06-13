@@ -1,7 +1,7 @@
-import { Item } from "../models/Item";
-import { getIconById } from "../models/tables/BaseIcons";
-import Button from "./Button";
-import LinkButton from "./LinkButton";
+import { Item } from "../../models/Item";
+import { getIconById } from "../../models/tables/BaseIcons";
+import Button from "../generic/Button";
+import LinkButton from "../generic/LinkButton";
 
 const ItemOverview = ({
     item,

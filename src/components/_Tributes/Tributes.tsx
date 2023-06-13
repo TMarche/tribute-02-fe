@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Tribute } from "../../models/Tribute";
-import TributeOverview from "../TributeOverview";
-import PageHeader from "../PageHeader";
-import TributeForm from "../forms/TributeForm";
-import GridLayout from "../layouts/GridLayout";
+import TributeOverview from "./TributeOverview";
+import PageHeader from "../generic/PageHeader";
+import TributeForm from "./TributeForm";
+import GridLayout from "../generic/GridLayout";
 import { Item } from "../../models/Item";
 import { TributeItem } from "../../models/mappings/TriibuteItem";
 

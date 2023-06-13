@@ -1,8 +1,8 @@
 import { Item } from "../../models/Item";
-import ItemOverview from "../ItemOverview";
-import PageHeader from "../PageHeader";
-import ItemForm from "../forms/ItemForm";
-import GridLayout from "../layouts/GridLayout";
+import ItemOverview from "./ItemOverview";
+import PageHeader from "../generic/PageHeader";
+import ItemForm from "./ItemForm";
+import GridLayout from "../generic/GridLayout";
 
 const Items = ({
     items,

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useMediaQuery from "../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import CornerAdornment from "./CornerAdornment";
 
 const Navigation = () => {

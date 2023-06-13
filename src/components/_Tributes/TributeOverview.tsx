@@ -1,10 +1,10 @@
-import Helpers from "../helpers/helpers";
-import { Item } from "../models/Item";
-import { TributeItem } from "../models/mappings/TriibuteItem";
-import { getClassById } from "../models/tables/Classes";
-import { Tribute } from "../models/Tribute";
-import Button from "./Button";
-import LinkButton from "./LinkButton";
+import Helpers from "../../helpers/helpers";
+import { Item } from "../../models/Item";
+import { TributeItem } from "../../models/mappings/TriibuteItem";
+import { getClassById } from "../../models/tables/Classes";
+import { Tribute } from "../../models/Tribute";
+import Button from "../generic/Button";
+import LinkButton from "../generic/LinkButton";
 
 const TributeOverview = ({
     tribute,

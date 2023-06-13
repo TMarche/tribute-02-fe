@@ -1,4 +1,4 @@
-import { Tribute } from "../models/Tribute";
+import { Tribute } from "../../models/Tribute";
 
 const AlliesDetail = ({ tribute }: { tribute: Tribute }) => {
     return (

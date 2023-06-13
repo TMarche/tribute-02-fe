@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { Tribute } from "../../models/Tribute";
-import Button from "../Button";
+import Button from "../generic/Button";
 import { TributeItem } from "../../models/mappings/TriibuteItem";
 import { Item } from "../../models/Item";
 import { Weapon } from "../../models/Weapon";
