@@ -45,6 +45,12 @@ const Navigation = () => {
                 >
                     Games
                 </Link>
+                <Link
+                    className="hover:bg-hover-gradient-narrow bg-cover bg-center"
+                    to="/reduxTest"
+                >
+                    Redux Test
+                </Link>
             </div>
         </nav>
     );
