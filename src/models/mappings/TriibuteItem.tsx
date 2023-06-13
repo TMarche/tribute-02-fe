@@ -11,7 +11,7 @@ export class TributeItem {
         this.itemId = itemId;
     }
 
-    private getNextId() {
+    public getNextId() {
         const retval = TributeItem.nextId;
         TributeItem.nextId++;
         return retval;

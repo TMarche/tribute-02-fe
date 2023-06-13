@@ -46,7 +46,7 @@ export class Tribute {
         this.shieldId = 0;
     }
 
-    private getNextId() {
+    public getNextId() {
         const retval = Tribute.nextId;
         Tribute.nextId++;
         return retval;

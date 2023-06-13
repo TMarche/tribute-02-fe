@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { reducers } from "./redux/reducers";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { store } from "./redux/store.ts";
 
 // Enable use of 'F8' to pause execution and enter debugger
 document.addEventListener(
@@ -20,9 +18,6 @@ document.addEventListener(
         capture: true,
     }
 );
-
-// React/Redux setup
-const store = createStore(reducers, composeWithDevTools());
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
