@@ -1,4 +1,3 @@
-import { Tribute } from "../../models/Tribute";
 import PageHeader from "../generic/PageHeader";
 import { useParams } from "react-router-dom";
 import GridLayout from "../generic/GridLayout";
@@ -9,20 +8,14 @@ import EquipmentDetail from "./EquipmentDetail";
 import AlliesDetail from "./AlliesDetail";
 import EnemiesDetail from "./EnemiesDetail";
 import AttackDetail from "./AttackDetail";
-import { Item } from "../../models/Item";
-import { TributeItem } from "../../models/mappings/TriibuteItem";
+import { useAppSelector } from "../../redux/hooks";
 
-const TributeDetail = ({
-    tributes,
-    items,
-    tributesItems,
-    setTributes,
-}: {
-    tributes: Tribute[];
-    items: Item[];
-    tributesItems: TributeItem[];
-    setTributes: (tributes: Tribute[]) => void;
-}) => {
+const TributeDetail = () => {
+    const tributes = useAppSelector((state) => state.entities.tributes);
+    const items = useAppSelector((state) => state.entities.items);
+    const tributesItems = useAppSelector(
+        (state) => state.entities.tributesItems
+    );
     const { id } = useParams();
 
     const tribute = tributes.find(

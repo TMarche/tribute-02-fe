@@ -3,17 +3,10 @@ import ItemOverview from "./ItemOverview";
 import PageHeader from "../generic/PageHeader";
 import ItemForm from "./ItemForm";
 import GridLayout from "../generic/GridLayout";
+import { useAppSelector } from "../../redux/hooks";
 
-const Items = ({
-    items,
-    setItems,
-}: {
-    items: Item[];
-    setItems: (items: Item[]) => void;
-}) => {
-    const handleDelete = (item: Item) => {
-        setItems(items.filter((i) => i.itemId !== item.itemId));
-    };
+const Items = () => {
+    const items = useAppSelector((state) => state.entities.items);
 
     return (
         <div className="relative flex-1 sm:p-10">
@@ -25,12 +18,7 @@ const Items = ({
                     </div>
                     <GridLayout>
                         {items.map((item) => (
-                            <ItemOverview
-                                key={item.itemId}
-                                item={item}
-                                setItems={setItems}
-                                deleteItem={handleDelete}
-                            />
+                            <ItemOverview key={item.itemId} item={item} />
                         ))}
                         {/* {items.map((item) =>
                             <ItemOverview

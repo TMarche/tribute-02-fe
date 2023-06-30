@@ -27,7 +27,10 @@ const ItemsDetail = ({
                         (item) => item.itemId === ti.itemId
                     );
                     return (
-                        <div className="flex flex-row gap-2 border-2 p-1 items-center">
+                        <div
+                            key={ti.tributeItemId}
+                            className="flex flex-row gap-2 border-2 p-1 items-center"
+                        >
                             <div
                                 className={`h-6 aspect-square ${
                                     getIconById(item?.iconId || 0)?.icon

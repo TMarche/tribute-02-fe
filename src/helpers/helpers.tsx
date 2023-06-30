@@ -37,15 +37,32 @@ class Helpers {
         ) as Armor;
 
         // TODO: Needs to account for CON on Barbarian when not using armor is preferable
-        return (
-            Math.max(this.BASE_AC, armor.ac) +
-            Math.min(
-                this.calculateModifier(tribute.dex),
-                getArmorTypeById(armor.armorTypeId)?.maxDexBonus ||
-                    this.MAX_DEX_BONUS
-            ) +
-            (weapon.handedness === Handedness.One ? shield.acBonus : 0)
+        const base = Math.max(this.BASE_AC, armor.ac);
+
+        const armorMaxDexBonus = getArmorTypeById(
+            armor.armorTypeId
+        )?.maxDexBonus;
+        const dexBonus = Math.min(
+            this.calculateModifier(tribute.dex),
+            armorMaxDexBonus === undefined
+                ? this.MAX_DEX_BONUS
+                : armorMaxDexBonus
         );
+
+        const shieldBonus =
+            weapon.handedness === Handedness.One ? shield.acBonus : 0;
+
+        return base + dexBonus + shieldBonus;
+
+        // return (
+        //     Math.max(this.BASE_AC, armor.ac) +
+        //     Math.min(
+        //         this.calculateModifier(tribute.dex),
+        //         getArmorTypeById(armor.armorTypeId)?.maxDexBonus ||
+        //             this.MAX_DEX_BONUS
+        //     ) +
+        //     (weapon.handedness === Handedness.One ? shield.acBonus : 0)
+        // );
     };
 }
 

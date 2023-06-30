@@ -6,24 +6,16 @@ import { Item } from "../../models/Item";
 import { Weapon } from "../../models/Weapon";
 import { Armor } from "../../models/Armor";
 import { Shield } from "../../models/Shield";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useState } from "react";
+import { addTribute } from "../../redux/features/entities/entitiesSlice";
 
-const TributeForm = ({
-    name,
-    setName,
-    tributes,
-    items,
-    tributesItems,
-    setTributes,
-    setTributesItems,
-}: {
-    name: string;
-    setName: (name: string) => void;
-    tributes: Tribute[];
-    items: Item[];
-    tributesItems: TributeItem[];
-    setTributes: (tributes: Tribute[]) => void;
-    setTributesItems: (tributesItems: TributeItem[]) => void;
-}) => {
+const TributeForm = () => {
+    const dispatch = useAppDispatch();
+    const items = useAppSelector((state) => state.entities.items);
+
+    const [name, setName] = useState<string>("");
+
     const handleKeyPress = (event: any) => {
         if (event.key === "Enter") {
             handleAdd();
@@ -36,7 +28,7 @@ const TributeForm = ({
             nameToUse = faker.person.fullName();
         }
         const tribute = new Tribute(nameToUse);
-        const tributeItems: Item[] = [];
+        const itemsToAdd: Item[] = [];
 
         // Grab a random weapon, armor, and shield
         const weapons = items.filter((item) => item instanceof Weapon);
@@ -48,38 +40,22 @@ const TributeForm = ({
         const shield = shields[Math.floor(Math.random() * shields.length)];
 
         if (weapon) {
-            tributeItems.push(weapon);
+            itemsToAdd.push(weapon);
             tribute.weaponId = weapon.itemId;
         }
         if (armor) {
-            tributeItems.push(armor);
+            itemsToAdd.push(armor);
             tribute.armorId = armor.itemId;
         }
         if (shield) {
-            tributeItems.push(shield);
+            itemsToAdd.push(shield);
             tribute.shieldId = shield.itemId;
         }
 
-        // let itemsCopy = [...items];
-        // // Grab three random items from the items list
-        // for (let i = 0; i < 3; i++) {
-        //     const currentIndex = Math.floor(Math.random() * itemsCopy.length);
-        //     const currentItem = itemsCopy[currentIndex];
-        //     itemsCopy = [
-        //         ...itemsCopy.slice(0, currentIndex),
-        //         ...itemsCopy.slice(currentIndex + 1),
-        //     ];
-        //     if (!currentItem) break;
-        //     tributeItems = [...tributeItems, currentItem];
-        // }
-
-        setTributesItems([
-            ...tributesItems,
-            ...tributeItems.map(
-                (item) => new TributeItem(tribute.tributeId, item.itemId)
-            ),
-        ]);
-        setTributes([...tributes, tribute]);
+        const tributesItems = itemsToAdd.map(
+            (item) => new TributeItem(tribute.tributeId, item.itemId)
+        );
+        dispatch(addTribute({ tribute, tributesItems }));
         setName("");
     };
 

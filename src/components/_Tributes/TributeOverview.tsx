@@ -1,24 +1,18 @@
 import Helpers from "../../helpers/helpers";
-import { Item } from "../../models/Item";
-import { TributeItem } from "../../models/mappings/TriibuteItem";
 import { getClassById } from "../../models/tables/Classes";
 import { Tribute } from "../../models/Tribute";
+import { deleteTribute } from "../../redux/features/entities/entitiesSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Button from "../generic/Button";
 import LinkButton from "../generic/LinkButton";
 
-const TributeOverview = ({
-    tribute,
-    items,
-    tributesItems,
-    setTributes,
-    deleteTribute,
-}: {
-    tribute: Tribute;
-    items: Item[];
-    tributesItems: TributeItem[];
-    setTributes: (tributes: Tribute[]) => void;
-    deleteTribute: (tribute: Tribute) => void;
-}) => {
+const TributeOverview = ({ tribute }: { tribute: Tribute }) => {
+    const dispatch = useAppDispatch();
+    const items = useAppSelector((state) => state.entities.items);
+    const tributesItems = useAppSelector(
+        (state) => state.entities.tributesItems
+    );
+
     return (
         <div className="relative flex bg-white flex-col gap-1 border-solid border-2 w-full drop-shadow-xl">
             <div className="flex flex-row">
@@ -52,7 +46,7 @@ const TributeOverview = ({
                         .filter((ti) => ti.tributeId === tribute.tributeId)
                         .map((ti) => {
                             return (
-                                <div>
+                                <div key={ti.tributeItemId}>
                                     {
                                         items.find(
                                             (item) => item.itemId === ti.itemId
@@ -66,7 +60,7 @@ const TributeOverview = ({
             <div className="absolute -bottom-4 right-4 flex flex-row gap-1 justify-end">
                 <Button
                     onClick={() => {
-                        deleteTribute(tribute);
+                        dispatch(deleteTribute(tribute.tributeId));
                     }}
                 >
                     Delete
